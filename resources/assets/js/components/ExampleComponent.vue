@@ -1,25 +1,16 @@
 <template>
     <div class="container">
-       <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Example Component</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    <div class="panel-body">
+                        I'm an example component!
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
     </div>
 </template>
 
