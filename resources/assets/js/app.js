@@ -16,6 +16,10 @@ window.Vue = require('vue');
  */
 
 Vue.component('chat', require('./components/chatComponent.vue'));
+Vue.component('chat-message', require('./components/chatMessage.vue'));
+Vue.component('chat-log', require('./components/chatLog.vue'));
+Vue.component('chat-composer', require('./components/chatComposer.vue'));
+
 
 const app = new Vue({
     el: '#app'
