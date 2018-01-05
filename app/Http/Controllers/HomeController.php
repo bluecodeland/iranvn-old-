@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Verta;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       
+
+        $v = new Verta(); //1396-02-02 15:32:08
+        $v = verta(); //1396-02-02 15:32:08
+        return view('home')->with('fullname', $v);
     }
+
+    
 }
