@@ -30,11 +30,11 @@
 
 <script>
   $(function () {
-    var socket = io(':6001');
+    var socket = io(':8080');
     
-    
+    //'{{ Auth::user()->name }}' ++ ': ' + ' {{ $fullname }}'
     $('form').submit(function(){
-      socket.emit('chat message',  `` + '{{ Auth::user()->name }}' + $('#m').val() + ': ' + ' {{ $fullname }}');
+      socket.emit('chat message',  $('#m').val());
       $('#m').val('');
       return false;
     });
