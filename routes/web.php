@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/chat', function () {
-    return view('chat');
+    $v = new Verta(); //1396-02-02 15:32:08
+        $v = verta(); //1396-02-02 15:32:08
+        return view('chat')->with('fullname', $v);
 })->middleware('auth');
 
 Auth::routes();

@@ -25,9 +25,7 @@ class HomeController extends Controller
     {
        
 
-        $v = new Verta(); //1396-02-02 15:32:08
-        $v = verta(); //1396-02-02 15:32:08
-        return view('home')->with('fullname', $v);
+        
     }
 
     
