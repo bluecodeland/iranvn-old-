@@ -6,7 +6,7 @@
 
 <div id="messages"></div>
 <form action="">
-<div class="input-group" style="position:fixed; bottom:0;">
+<div class="input-group">
     <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
     <span class="input-group-btn">
     <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
