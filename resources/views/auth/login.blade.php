@@ -53,13 +53,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-6 offset-lg-1">
+                            {{--  <div class="col-lg-6 offset-lg-1">
                                 <div class="form-check">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input" name="remember" {{ old('remember') ? 'checked' : '' }}>  <strong style="padding-right:20px;">مرا به خاطر بسپار</strong
                                     </label>
                                 </div>
-                            </div>
+                            </div>  --}}
                         </div>
 
                         <div class="form-group row">
