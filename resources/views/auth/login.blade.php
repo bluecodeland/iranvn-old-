@@ -68,9 +68,9 @@
                                     ورود
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{--  <a class="btn btn-link" href="{{ route('password.request') }}">
                                    رمز عبور خود را فراموش کرده اید ؟ کلیک کنید
-                                </a>
+                                </a>  --}}
                             </div>
                         </div>
                     </form>
