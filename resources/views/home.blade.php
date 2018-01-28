@@ -9,7 +9,6 @@
 
                 <div class="card-body">
                
-                            {{ $fullname }}
                     You are logged in!
                 </div>
             </div>
