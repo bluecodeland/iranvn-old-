@@ -32,15 +32,17 @@
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ورود</a></li>
                         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">ثبت نام</a></li>
                     @else
-                        <li class="nav-item dropdown">
+                    <li class="nav-item">
+                            <a href="/chat" class="dropdown-item">                           
+                                Chat
+                            </a
+                        </li>    
+                    <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="/chat" class="dropdown-item">                           
-                                 Chat
-                             </a>    
                                 <a href="{{ route('logout') }}" class="dropdown-item"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     خروج
