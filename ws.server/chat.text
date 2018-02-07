@@ -1,0 +1,8 @@
+{{--  <?php         //DB::table('notes')->delete();
+$notes = DB::table('notes')->get();
+
+foreach ($notes as $note)
+{
+    var_dump($note->note);
+}
+?>  --}}
