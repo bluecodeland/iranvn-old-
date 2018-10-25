@@ -30,7 +30,7 @@
 
 {{--  <script>
 // var socket = io(':6001');
-       var socket = io(':8080');
+       var socket = io(':8282');
 
 
 </script>  --}}
@@ -113,7 +113,7 @@
   
 {{--  <script>
   $(function () {
-    var socket = io(':8080');
+    var socket = io(':8282');
     
     //'{{ Auth::user()->name }}' ++ ': ' + ' {{ $fullname }}'
     $('form').submit(function(){
