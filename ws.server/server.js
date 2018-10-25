@@ -2,8 +2,8 @@ var fs = require( 'fs' );
 var app = require('express')();
 var https        = require('https');
 var server = https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/iranvn.ir/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/iranvn.ir/cert.pem')
+    key: fs.readFileSync('/etc/letsencrypt/live/www.iranvn.ir/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/www.iranvn.ir/cert.pem')
 },app);
 server.listen(8282);
 
