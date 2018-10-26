@@ -67,7 +67,7 @@
      $('#m').keyup(function(e) {
       if (e.which === 13) {
         socket.emit('typing', false);
-        send();
+        // send();
       } else if ($('#m').val() !== '') {
         socket.emit('typing', true);
       } else {
