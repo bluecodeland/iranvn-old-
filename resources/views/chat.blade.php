@@ -67,7 +67,7 @@
    
       // New socket connected, display new count on page
       socket.on('users connected', function(data){
-          $('#usersConnected').html('Users connected: ' + data)
+          $('#usersConnected').html('کاربر آنلاین: ' + data)
       })
    
      // Typing
