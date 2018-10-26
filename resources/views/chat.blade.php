@@ -6,7 +6,7 @@
 <div class="container text-right">
   <div id="usersConnected" class="bg-primary"></div>
   <div id="notes"></div>
-  <div>
+  <div style="position:fixed; bottom:0;">
 
 
     <div class="d-flex text-white">
@@ -37,7 +37,6 @@
      --}}
 
 {{--  <script>
-// var socket = io(':6001');
        var socket = io(':8282');
 
 
@@ -104,7 +103,7 @@
           socket.emit('new note', {note: newNote});
           $('#m').val('');
           
-          window.scrollTo(0, 500000);
+          window.scrollTo(0,document.body.scrollHeight);
           
           
       })
@@ -113,7 +112,7 @@
         var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
             socket.emit('new note', {note: newNote});
             $('#m').val('');
-            window.scrollTo(0, 500000);}
+            window.scrollTo(0,document.body.scrollHeight);}
             
         })
   
