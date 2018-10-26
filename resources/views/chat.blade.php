@@ -96,7 +96,7 @@
           socket.emit('new note', {note: newNote});
           $('#m').val('');
           
-          window.scrollTo(0,document.body.scrollHeight);
+          window.scrollTo(-10,document.body.scrollHeight);
           
       })
       $('#m').keydown(function(e){
@@ -104,7 +104,7 @@
         var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
             socket.emit('new note', {note: newNote});
             $('#m').val('');
-            window.scrollTo(0,document.body.scrollHeight);}
+            window.scrollTo(-10,document.body.scrollHeight);}
             
         })
   
