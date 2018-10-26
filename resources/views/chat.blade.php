@@ -7,8 +7,15 @@
   <div id="usersConnected" class="bg-primary"></div>
   <div id="notes"></div>
   <div>
-          <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  autocomplete="off" />
+
+
+    <div class="d-flex text-white">
+      <div class="p-2 w-100 bg-primary">
+        <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  autocomplete="off" />
+      </div>
+      <div class="p-2 flex-shrink-0 bg-success">Flex item</div>
         <button id="newNote" type="button" class="btn btn-primary">ارسال</button>
+      </div>
       @if (Auth::user()->role === 'user')  
         <button id="delete" type="button" class="btn btn-primary">پاک کردن</button>
        @endif 
