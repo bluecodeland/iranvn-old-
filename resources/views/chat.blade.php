@@ -6,6 +6,7 @@
 <div class="container text-right">
   <div id="usersConnected" class="bg-primary"></div>
   <div id="notes"></div>
+  <div style="min-height:80px;"></div>
   <div style="position:fixed; bottom:0;">
 
 
