@@ -38,7 +38,7 @@ $(document).ready(function(){
 
    socket.on('updateTyping', function(isTyping) {
   if (isTyping === true) {
-    $('#typing').html('{{ Auth::user()->name }}' + ' is typing...');
+    $('#typing').html('is typing...');
   } else {
     $('#typing').html('');
   }
