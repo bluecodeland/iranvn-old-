@@ -8,10 +8,10 @@
   <div class="col-sm-12 bg-danger rounded ">
     <span id="typing"></span>
   </div>
-<div class="col-sm-12 bg-success" id="usersConnected">
+<div class="col-sm-12 bg-success rounded" id="usersConnected">
 </div>
 <div id="notes"  class="col-sm-12 text-right" style="min-height:70vh; max-height:70vh; height:70vh; overflow-y: scroll;"></div>
-        <div class="col-sm-10">
+        <div class="col-sm-8">
           <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  autocomplete="off" />
         </div>
         <div class="col-sm-2">
