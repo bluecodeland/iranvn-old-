@@ -35,10 +35,10 @@ $(document).ready(function(){
       socket.emit('typing', false);
     }
   });
-
+var uName = $(username).html();
    socket.on('updateTyping', function(isTyping) {
   if (isTyping === true) {
-    $('#typing').html($("#username").html + 'is typing...');
+    $('#typing').html( uName + 'is typing...');
   } else {
     $('#typing').html('');
   }
@@ -53,7 +53,7 @@ $(document).ready(function(){
     // Add a new (random) note, emit to server to let others know
    
     $('#newNote').click(function(){
-    var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
+    var newNote =  $('#m').val() + uName;
         socket.emit('new note', {note: newNote});
         $('#m').val('');
         
