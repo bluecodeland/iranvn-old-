@@ -5,8 +5,8 @@
 <span id="typing"></span>
 <div class="container text-right">
   <div id="usersConnected" class="bg-primary"></div>
-  <div id="notes"></div>
-  <div style="min-height:90vh; max-height:90vh; height:90vh; overflow-y: scroll;"></div>
+  <div id="notes" style="min-height:90vh; max-height:90vh; height:90vh; overflow-y: scroll;"></div>
+  <div ></div>
   <div style="position:fixed; bottom:0;">
 
 
