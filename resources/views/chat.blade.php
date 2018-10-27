@@ -11,7 +11,7 @@
 <div class="col-sm-12 bg-success rounded" id="usersConnected">
  
 </div>
-<label for="'{{ Auth::user()->name }}' + ">'{{ Auth::user()->name }}' + </label>
+<label for="{{ Auth::user()->name }}" id="username" >{{ Auth::user()->name }}</label>
 <div id="notes"  class="col-sm-12 text-right" style="min-height:70vh; max-height:70vh; height:70vh; overflow-y: scroll;"></div>
         <div class="col-sm-8">
           <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  autocomplete="off" />

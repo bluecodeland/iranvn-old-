@@ -38,7 +38,7 @@ $(document).ready(function(){
 
    socket.on('updateTyping', function(isTyping) {
   if (isTyping === true) {
-    $('#typing').html('is typing...');
+    $('#typing').html($("#username").html + 'is typing...');
   } else {
     $('#typing').html('');
   }
