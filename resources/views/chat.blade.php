@@ -2,141 +2,103 @@
 @section('head')
 @endsection
 @section('content')
-<span id="typing"></span>
-<div class="container text-right">
-  <div id="usersConnected" class="bg-primary"></div>
-  <div id="notes" style="min-height:70vh; max-height:70vh; height:70vh; overflow-y: scroll;"></div>
-  <div ></div>
-  <div style="position:fixed; bottom:0;">
 
-
-    <div class="d-flex text-white">
-      <div class="p-2 w-100 bg-primary">
-        <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  autocomplete="off" />
-      </div>
-      <div class="p-2 flex-shrink-0 bg-success">
-        <button id="newNote" type="button" class="btn btn-primary">ارسال</button>
-      </div>
-      </div>
-      @if (Auth::user()->role === 'user')  
-        <button id="delete" type="button" class="btn btn-primary">پاک کردن</button>
-       @endif 
-      </div>
-  {{--  <div id="messages"></div>
-<form action="">
-<div class="input-group">
-    <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
-    <span class="input-group-btn">
-    <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
-    </span>
+<div class="container" style="padding-top:5vh;">
+  <div class="row">
+  <div class="col-sm-12 bg-danger rounded ">
+    <span id="typing"></span>
+  </div>
+<div class="col-sm-12 bg-success" id="usersConnected">
 </div>
-</form>  --}}
-{{--  <form action="">
-  <input id="m" autocomplete="off" /><button>Send</button>
-  <button onclick="location.reload();">clear</button>
-</form>
-     --}}
+<div id="notes"  class="col-sm-12 text-right" style="min-height:70vh; max-height:70vh; height:70vh; overflow-y: scroll;"></div>
+        <div class="col-sm-10">
+          <input id="m" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  autocomplete="off" />
+        </div>
+        <div class="col-sm-2">
+          <button id="newNote" type="button" class="btn btn-primary">ارسال</button>
+        </div>
+        </div>
+        @if (Auth::user()->role === 'user')  
+          <div class="col-sm-2"><button id="delete" type="button" class="btn btn-primary">پاک کردن</button></div>
+         @endif 
+        </div>
 
-{{--  <script>
-       var socket = io(':8282');
 
-
-</script>  --}}
-<script src="js/socket.io.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script>
-  $(document).ready(function(){
-      // Connect to our node/websockets server
-      window.scrollTo(0,document.body.scrollHeight);
-      //var socket = io.connect(':8080');
-  	       var socket = io(':8282');
-
-      // Initial set of notes, loop through and add to list
-      socket.on('initial notes', function(data){
-          var html = ''
-          for (var i = 0; i < data.length; i++){
-              // We store html as a var then add to DOM after for efficiency
-              html += '<div class=talk-bubble tri-right round border right-top> <div class=talktext><p>' + data[i].note + '</p></div></div>'
-          }
-          $('#notes').html(html)
-      })
-   
-      // New note emitted, add it to our list of current notes
-      socket.on('new note', function(data){
-          $('#notes').append('<p>' + data.note + '</p>')
-      })
-   
-      // New socket connected, display new count on page
-      socket.on('users connected', function(data){
-          $('#usersConnected').html('کاربر آنلاین: ' + data)
-      })
-   
-     // Typing
-     $('#m').keyup(function(e) {
-      if (e.which === 13) {
-        socket.emit('typing', false);
-        // send();
-      } else if ($('#m').val() !== '') {
-        socket.emit('typing', true);
+  <script src="js/socket.io.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        // Connect to our node/websockets server
+        window.scrollTo(0,document.body.scrollHeight);
+        //var socket = io.connect(':8080');
+             var socket = io(':8282');
+  
+        // Initial set of notes, loop through and add to list
+        socket.on('initial notes', function(data){
+            var html = ''
+            for (var i = 0; i < data.length; i++){
+                // We store html as a var then add to DOM after for efficiency
+                html += '<div class=talk-bubble tri-right round border right-top> <div class=talktext><p>' + data[i].note + '</p></div></div>'
+            }
+            $('#notes').html(html)
+        })
+     
+        // New note emitted, add it to our list of current notes
+        socket.on('new note', function(data){
+            $('#notes').append('<p>' + data.note + '</p>')
+        })
+     
+        // New socket connected, display new count on page
+        socket.on('users connected', function(data){
+            $('#usersConnected').html('کاربر آنلاین: ' + data)
+        })
+     
+       // Typing
+       $('#m').keyup(function(e) {
+        if (e.which === 13) {
+          socket.emit('typing', false);
+          // send();
+        } else if ($('#m').val() !== '') {
+          socket.emit('typing', true);
+        } else {
+          socket.emit('typing', false);
+        }
+      });
+  
+       socket.on('updateTyping', function(isTyping) {
+      if (isTyping === true) {
+        $('#typing').html('{{ Auth::user()->name }}' + ' is typing...');
       } else {
-        socket.emit('typing', false);
+        $('#typing').html('');
       }
     });
-
-     socket.on('updateTyping', function(isTyping) {
-		if (isTyping === true) {
-			$('#typing').html('{{ Auth::user()->name }}' + ' is typing...');
-		} else {
-			$('#typing').html('');
-		}
-	});
-    // delete note
-    $('#delete').click(function(){
-                 socket.emit('delete');
-                 //location.reload();         
-                
-      })
-     
-      // Add a new (random) note, emit to server to let others know
-     
-      $('#newNote').click(function(){
-      var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
-          socket.emit('new note', {note: newNote});
-          $('#m').val('');
-          
-          window.scrollTo(0,document.body.scrollHeight);
-          
-          
-      })
-      $('#m').keydown(function(e){
-        if (e.keyCode == 13) {
+      // delete note
+      $('#delete').click(function(){
+                   socket.emit('delete');
+                   //location.reload();         
+                  
+        })
+       
+        // Add a new (random) note, emit to server to let others know
+       
+        $('#newNote').click(function(){
         var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
             socket.emit('new note', {note: newNote});
             $('#m').val('');
-            window.scrollTo(0,document.body.scrollHeight);}
+            
+            window.scrollTo(0,document.body.scrollHeight);
+            
             
         })
-  
-  })
-  </script>
-  
-{{--  <script>
-  $(function () {
-    var socket = io(':8282');
+        $('#m').keydown(function(e){
+          if (e.keyCode == 13) {
+          var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
+              socket.emit('new note', {note: newNote});
+              $('#m').val('');
+              window.scrollTo(0,document.body.scrollHeight);}
+              
+          })
     
-    //'{{ Auth::user()->name }}' ++ ': ' + ' {{ $fullname }}'
-    $('form').submit(function(){
-      socket.emit('chat message',  $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<p>').text(msg));
-            window.scrollTo(0,document.body.scrollHeight);
-    });
-    
-  });
-</script>  --}}
-</div>
-
+    })
+    </script>
 @endsection
