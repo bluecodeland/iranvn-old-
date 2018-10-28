@@ -63,7 +63,7 @@ var uName = $(username).html();
     })
     $('#m').keydown(function(e){
       if (e.keyCode == 13) {
-      var newNote =  $('#m').val() + ': {{ Auth::user()->name }}   ';
+      var newNote =  $('#m').val() + uName;
           socket.emit('new note', {note: newNote});
           $('#m').val('');
           window.scrollTo(0,document.body.scrollHeight);}

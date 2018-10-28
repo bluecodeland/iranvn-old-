@@ -1,13 +1,14 @@
-.bg {background-color:black; min-height:10vh;height:10vh}
-.seven {background-color:red; min-height:60vh;height:60vh; overflow-y: scroll;direction: rtl; outline: none;}
+body {background-color:#2d3436 !important; direction: rtl !important;}
+.bg {background-color:#e74c3c; min-height:10vh;height:10vh}
+.seven {background-color:#34495e; min-height:60vh;height:60vh; overflow-y: scroll;direction: rtl; outline: none;background-image: url('../img/background_01.png')}
 /* width */
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background:#2c3e50; 
 }
  
 /* Handle */
@@ -20,10 +21,12 @@
     background: #555; 
 }
 .circle {
-    margin: 5px;
+    /* margin: 5px; */
     height: 9vh;
     width: 9vh;
-    background-color: #bbb;
+    background-color: #c0392b;
     border-radius: 50%;
     display: inline-block;
   }
+  .top {margin-top: 2.8vh;}
+  p {background-color:#ecf0f1; border-style: dashed; border-width:1px; padding: 2vh; width: fit-content; }
