@@ -1,0 +1,29 @@
+.bg {background-color:black; min-height:10vh;height:10vh}
+.seven {background-color:red; min-height:60vh;height:60vh; overflow-y: scroll;direction: rtl; outline: none;}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+.circle {
+    margin: 5px;
+    height: 9vh;
+    width: 9vh;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }

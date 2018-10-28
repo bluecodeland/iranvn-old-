@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/ch', function () {
+    return view('chatlayout');
+});
+
 Route::get('/chat', function () {
     $v = new Verta(); //1396-02-02 15:32:08
         $v = verta(); //1396-02-02 15:32:08
