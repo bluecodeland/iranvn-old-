@@ -5,13 +5,11 @@
 @section('content')
 
 <div class="container" style="padding-top:2vh;">
-  
-  
   <div class="row">
     <div class="col-sm-12 bg"> 
       <div class="d-flex flex-wrap align-content-center ">
         <div class="p-2"> <div class="circle d-flex align-items-center" id="usersConnected"></div>
-        <div class="p-2 top">کاربرf آنلاین ()</div>
+        <div class="p-2 top">کاربر آنلاین ()</div>
       </div>
     </div>
       
@@ -29,7 +27,7 @@
 
 </div>
 <label for="{{ Auth::user()->name }}" id="username" style=" display:none;">{{ Auth::user()->name }}</label>
-
+<label for="{{ Carbon\Carbon::now('Asia/Tehran')}}" id="time" style=" display:none;"> {{ Carbon\Carbon::now('Asia/Tehran')}}</label>
 
 
 

@@ -1,6 +1,5 @@
 $(document).ready(function(){
     // Connect to our node/websockets server
-    window.scrollTo(0,document.body.scrollHeight);
     //var socket = io.connect(':8080');
          var socket = io(':8282');
 
@@ -9,15 +8,20 @@ $(document).ready(function(){
         var html = ''
         for (var i = 0; i < data.length; i++){
             // We store html as a var then add to DOM after for efficiency
-            html += '<div class=talk-bubble tri-right round border right-top> <div class=talktext><p>' + data[i].note + '</p></div></div>'
+            html += '<p>' + data[i].note + '</p>'
         }
         $('#notes').html(html)
+        $('#notes').scrollTop($('#notes')[0].scrollHeight - $('#notes')[0].clientHeight);
+
     })
  
     // New note emitted, add it to our list of current notes
     socket.on('new note', function(data){
         $('#notes').append('<p>' + data.note + '</p>')
-    })
+    $('#notes').scrollTop($('#notes')[0].scrollHeight - $('#notes')[0].clientHeight);
+        
+    
+      })
  
     // New socket connected, display new count on page
     socket.on('users connected', function(data){
@@ -36,6 +40,7 @@ $(document).ready(function(){
     }
   });
 var uName = $(username).html();
+var sendTime  = $(time).html();
    socket.on('updateTyping', function(isTyping) {
   if (isTyping === true) {
     $('#typing').html( uName + 'is typing...');
@@ -53,20 +58,20 @@ var uName = $(username).html();
     // Add a new (random) note, emit to server to let others know
    
     $('#newNote').click(function(){
-    var newNote =  $('#m').val() + uName;
+    var newNote =  $('#m').val() + uName +sendTime;
         socket.emit('new note', {note: newNote});
         $('#m').val('');
         
-        window.scrollTo(0,document.body.scrollHeight);
+        
         
         
     })
     $('#m').keydown(function(e){
       if (e.keyCode == 13) {
-      var newNote =  $('#m').val() + uName;
+      var newNote =  $('#m').val() + uName +sendTime;
           socket.emit('new note', {note: newNote});
           $('#m').val('');
-          window.scrollTo(0,document.body.scrollHeight);}
+          }
           
       })
 
